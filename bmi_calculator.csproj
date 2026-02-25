@@ -60,9 +60,18 @@
 		
 		<!-- Custom Fonts -->
 		<MauiFont Include="Resources\Fonts\*" />
+		<!-- Inter font variants -->
+		<MauiFont Update="Resources\Fonts\Inter-Regular.ttf" Alias="InterRegular" />
+		<MauiFont Update="Resources\Fonts\Inter-Medium.ttf" Alias="InterMedium" />
+		<MauiFont Update="Resources\Fonts\Inter-SemiBold.ttf" Alias="InterSemiBold" />
+		<MauiFont Update="Resources\Fonts\Inter-Bold.ttf" Alias="InterBold" />
 
 		<!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
 		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
+
+		<!-- Force runtime XAML inflation for resource dictionaries (SourceGen incompatible with complex VSM setters) -->
+		<MauiXaml Update="Resources\Styles\Styles.xaml" Inflator="Runtime" />
+		<MauiXaml Update="Resources\Styles\Colors.xaml" Inflator="Runtime" />
 	</ItemGroup>
 
 	<ItemGroup>

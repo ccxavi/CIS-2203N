@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="bmi_calculator.Components.BmiResultCard">
+
+    <Border BackgroundColor="{AppThemeBinding Light={StaticResource Surface}, Dark={StaticResource SurfaceDark}}"
+            Stroke="{AppThemeBinding Light={StaticResource Border}, Dark={StaticResource BorderDark}}"
+            StrokeThickness="1"
+            StrokeShape="RoundRectangle 16">
+        <Border.Shadow>
+            <Shadow Brush="{AppThemeBinding Light=#10000000, Dark=#20000000}"
+                    Offset="0,2"
+                    Radius="8"
+                    Opacity="1"/>
+        </Border.Shadow>
+
+        <VerticalStackLayout Padding="24,24" Spacing="4">
+
+            <!-- Section label -->
+            <Label Text="YOUR RESULT"
+                   Style="{StaticResource CardLabel}"
+                   Margin="0,0,0,12"/>
+
+            <!-- BMI Number -->
+            <Label x:Name="BmiValueLabel"
+                   Style="{StaticResource BmiNumber}"
+                   HorizontalOptions="Start"
+                   LineHeight="1"/>
+
+            <!-- Category -->
+            <Label x:Name="CategoryLabel"
+                   Style="{StaticResource CategoryLabel}"
+                   Margin="0,4,0,0"/>
+
+            <!-- Subtle description -->
+            <Label x:Name="DescriptionLabel"
+                   FontFamily="InterRegular"
+                   FontSize="13"
+                   TextColor="{AppThemeBinding Light={StaticResource Muted}, Dark={StaticResource MutedDark}}"
+                   Margin="0,8,0,0"
+                   LineBreakMode="WordWrap"/>
+        </VerticalStackLayout>
+    </Border>
+</ContentView>

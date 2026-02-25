@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="bmi_calculator.Components.BmiScaleCard">
+
+    <Border BackgroundColor="{AppThemeBinding Light={StaticResource Surface}, Dark={StaticResource SurfaceDark}}"
+            Stroke="{AppThemeBinding Light={StaticResource Border}, Dark={StaticResource BorderDark}}"
+            StrokeThickness="1"
+            StrokeShape="RoundRectangle 16">
+        <Border.Shadow>
+            <Shadow Brush="{AppThemeBinding Light=#10000000, Dark=#20000000}"
+                    Offset="0,2"
+                    Radius="8"
+                    Opacity="1"/>
+        </Border.Shadow>
+
+        <VerticalStackLayout Padding="24,24" Spacing="14">
+
+            <!-- Header -->
+            <Label Text="BMI SCALE"
+                   Style="{StaticResource CardLabel}"
+                   Margin="0,0,0,4"/>
+
+            <!-- Underweight -->
+            <Grid ColumnDefinitions="12,*,Auto" ColumnSpacing="12" VerticalOptions="Center">
+                <BoxView Grid.Column="0"
+                         WidthRequest="4"
+                         HeightRequest="36"
+                         CornerRadius="2"
+                         BackgroundColor="{AppThemeBinding Light={StaticResource Gray300}, Dark={StaticResource Gray700}}"
+                         VerticalOptions="Center"/>
+                <VerticalStackLayout Grid.Column="1" Spacing="2" VerticalOptions="Center">
+                    <Label Text="Underweight"
+                           FontFamily="InterSemiBold"
+                           FontSize="14"
+                           TextColor="{AppThemeBinding Light={StaticResource OnSurface}, Dark={StaticResource OnSurfaceDark}}"/>
+                    <Label Text="Body weight may be insufficient"
+                           FontFamily="InterRegular"
+                           FontSize="12"
+                           TextColor="{AppThemeBinding Light={StaticResource Muted}, Dark={StaticResource MutedDark}}"/>
+                </VerticalStackLayout>
+                <Label Grid.Column="2"
+                       Text="&lt; 18.5"
+                       FontFamily="InterMedium"
+                       FontSize="14"
+                       TextColor="{AppThemeBinding Light={StaticResource Gray600}, Dark={StaticResource Gray400}}"
+                       VerticalOptions="Center"/>
+            </Grid>
+
+            <!-- Divider -->
+            <BoxView HeightRequest="1" BackgroundColor="{AppThemeBinding Light={StaticResource Gray100}, Dark={StaticResource Gray900}}" Margin="0"/>
+
+            <!-- Normal -->
+            <Grid ColumnDefinitions="12,*,Auto" ColumnSpacing="12" VerticalOptions="Center">
+                <BoxView Grid.Column="0"
+                         WidthRequest="4"
+                         HeightRequest="36"
+                         CornerRadius="2"
+                         BackgroundColor="{AppThemeBinding Light={StaticResource Gray600}, Dark={StaticResource Gray400}}"
+                         VerticalOptions="Center"/>
+                <VerticalStackLayout Grid.Column="1" Spacing="2" VerticalOptions="Center">
+                    <Label Text="Normal Weight"
+                           FontFamily="InterSemiBold"
+                           FontSize="14"
+                           TextColor="{AppThemeBinding Light={StaticResource OnSurface}, Dark={StaticResource OnSurfaceDark}}"/>
+                    <Label Text="Healthy body weight range"
+                           FontFamily="InterRegular"
+                           FontSize="12"
+                           TextColor="{AppThemeBinding Light={StaticResource Muted}, Dark={StaticResource MutedDark}}"/>
+                </VerticalStackLayout>
+                <Label Grid.Column="2"
+                       Text="18.5–24.9"
+                       FontFamily="InterMedium"
+                       FontSize="14"
+                       TextColor="{AppThemeBinding Light={StaticResource Gray600}, Dark={StaticResource Gray400}}"
+                       VerticalOptions="Center"/>
+            </Grid>
+
+            <!-- Divider -->
+            <BoxView HeightRequest="1" BackgroundColor="{AppThemeBinding Light={StaticResource Gray100}, Dark={StaticResource Gray900}}" Margin="0"/>
+
+            <!-- Overweight -->
+            <Grid ColumnDefinitions="12,*,Auto" ColumnSpacing="12" VerticalOptions="Center">
+                <BoxView Grid.Column="0"
+                         WidthRequest="4"
+                         HeightRequest="36"
+                         CornerRadius="2"
+                         BackgroundColor="{AppThemeBinding Light={StaticResource Gray800}, Dark={StaticResource Gray300}}"
+                         VerticalOptions="Center"/>
+                <VerticalStackLayout Grid.Column="1" Spacing="2" VerticalOptions="Center">
+                    <Label Text="Overweight"
+                           FontFamily="InterSemiBold"
+                           FontSize="14"
+                           TextColor="{AppThemeBinding Light={StaticResource OnSurface}, Dark={StaticResource OnSurfaceDark}}"/>
+                    <Label Text="Above healthy weight range"
+                           FontFamily="InterRegular"
+                           FontSize="12"
+                           TextColor="{AppThemeBinding Light={StaticResource Muted}, Dark={StaticResource MutedDark}}"/>
+                </VerticalStackLayout>
+                <Label Grid.Column="2"
+                       Text="25–29.9"
+                       FontFamily="InterMedium"
+                       FontSize="14"
+                       TextColor="{AppThemeBinding Light={StaticResource Gray600}, Dark={StaticResource Gray400}}"
+                       VerticalOptions="Center"/>
+            </Grid>
+
+            <!-- Divider -->
+            <BoxView HeightRequest="1" BackgroundColor="{AppThemeBinding Light={StaticResource Gray100}, Dark={StaticResource Gray900}}" Margin="0"/>
+
+            <!-- Obese -->
+            <Grid ColumnDefinitions="12,*,Auto" ColumnSpacing="12" VerticalOptions="Center">
+                <BoxView Grid.Column="0"
+                         WidthRequest="4"
+                         HeightRequest="36"
+                         CornerRadius="2"
+                         BackgroundColor="{AppThemeBinding Light={StaticResource Gray950}, Dark={StaticResource Gray100}}"
+                         VerticalOptions="Center"/>
+                <VerticalStackLayout Grid.Column="1" Spacing="2" VerticalOptions="Center">
+                    <Label Text="Obese"
+                           FontFamily="InterSemiBold"
+                           FontSize="14"
+                           TextColor="{AppThemeBinding Light={StaticResource OnSurface}, Dark={StaticResource OnSurfaceDark}}"/>
+                    <Label Text="Significantly above healthy range"
+                           FontFamily="InterRegular"
+                           FontSize="12"
+                           TextColor="{AppThemeBinding Light={StaticResource Muted}, Dark={StaticResource MutedDark}}"/>
+                </VerticalStackLayout>
+                <Label Grid.Column="2"
+                       Text="≥ 30"
+                       FontFamily="InterMedium"
+                       FontSize="14"
+                       TextColor="{AppThemeBinding Light={StaticResource Gray600}, Dark={StaticResource Gray400}}"
+                       VerticalOptions="Center"/>
+            </Grid>
+
+        </VerticalStackLayout>
+    </Border>
+</ContentView>

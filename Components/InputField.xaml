@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="bmi_calculator.Components.InputField"
+             x:Name="root">
+
+    <Border BackgroundColor="{AppThemeBinding Light={StaticResource Surface}, Dark={StaticResource SurfaceDark}}"
+            Stroke="{AppThemeBinding Light={StaticResource Border}, Dark={StaticResource BorderDark}}"
+            StrokeThickness="1"
+            StrokeShape="RoundRectangle 16">
+        <Border.Shadow>
+            <Shadow Brush="{AppThemeBinding Light=#10000000, Dark=#20000000}"
+                    Offset="0,2"
+                    Radius="8"
+                    Opacity="1"/>
+        </Border.Shadow>
+
+        <Grid ColumnDefinitions="*,Auto" Padding="20,16" RowDefinitions="Auto,Auto">
+            <!-- Label -->
+            <Label Grid.Row="0" Grid.ColumnSpan="2"
+                   Text="{Binding Source={x:Reference root}, Path=Label}"
+                   Style="{StaticResource CardLabel}"
+                   Margin="0,0,0,8"/>
+
+            <!-- Entry -->
+            <Entry Grid.Row="1" Grid.Column="0"
+                   Text="{Binding Source={x:Reference root}, Path=Value, Mode=TwoWay}"
+                   Placeholder="{Binding Source={x:Reference root}, Path=Placeholder}"
+                   Keyboard="Numeric"
+                   FontFamily="InterMedium"
+                   FontSize="22"
+                   MinimumHeightRequest="0"
+                   HeightRequest="36"
+                   VerticalOptions="Center"/>
+
+            <!-- Unit badge -->
+            <Border Grid.Row="1" Grid.Column="1"
+                    BackgroundColor="{AppThemeBinding Light={StaticResource Gray100}, Dark={StaticResource Gray900}}"
+                    Stroke="Transparent"
+                    StrokeShape="RoundRectangle 8"
+                    Padding="10,6"
+                    VerticalOptions="Center">
+                <Label Text="{Binding Source={x:Reference root}, Path=Unit}"
+                       FontFamily="InterMedium"
+                       FontSize="13"
+                       TextColor="{AppThemeBinding Light={StaticResource Gray600}, Dark={StaticResource Gray400}}"
+                       VerticalOptions="Center"/>
+            </Border>
+        </Grid>
+    </Border>
+</ContentView>
