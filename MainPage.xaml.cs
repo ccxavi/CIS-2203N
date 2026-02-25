@@ -64,6 +64,13 @@ public partial class MainPage : ContentPage
         ResultCard.IsVisible = true;
     }
 
+    private void OnResetClicked(object? sender, EventArgs e)
+    {
+        HeightInput.Value = string.Empty;
+        WeightInput.Value = string.Empty;
+        ResultCard.IsVisible = false;
+    }
+
     private bool IsValidHeight(double height) => height >= MinHeightCm && height <= MaxHeightCm;
 
     private bool IsValidWeight(double weight) => weight >= MinWeightKg && weight <= MaxWeightKg;
