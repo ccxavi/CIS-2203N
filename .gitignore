@@ -1,6 +1,8 @@
 # --- Build Artifacts ---
-[bin]/
-[obj]/
+bin/
+obj/
+artifacts/
+publish/
 Generated\ Files/
 
 # --- User-specific & IDE Files ---
@@ -27,7 +29,3 @@ _PCH/
 TestResults/
 [Cc]overage/
 *.log
-
-# --- Project Specific ---
-# Ignore published binaries
-publish/
