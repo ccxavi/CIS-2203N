@@ -2,6 +2,12 @@
 
 public partial class MainPage : ContentPage
 {
+    // WHO standard constraints
+    private const double MinHeightCm = 50.0;
+    private const double MaxHeightCm = 272.0;
+    private const double MinWeightKg = 0.5;
+    private const double MaxWeightKg = 500.0;
+
     public MainPage()
     {
         InitializeComponent();
@@ -10,15 +16,15 @@ public partial class MainPage : ContentPage
     private async void OnCalculateClicked(object? sender, EventArgs e)
     {
         // Parse height (cm) and weight (kg)
-        if (!double.TryParse(HeightInput.Value, out double heightCm) || heightCm <= 0)
+        if (!double.TryParse(HeightInput.Value, out double heightCm) || !IsValidHeight(heightCm))
         {
-            await DisplayAlertAsync("Invalid Input", "Please enter a valid height in centimetres.", "OK");
+            await DisplayAlertAsync("Invalid Height", $"Please enter a valid height between {MinHeightCm} and {MaxHeightCm} centimetres.", "OK");
             return;
         }
 
-        if (!double.TryParse(WeightInput.Value, out double weightKg) || weightKg <= 0)
+        if (!double.TryParse(WeightInput.Value, out double weightKg) || !IsValidWeight(weightKg))
         {
-            await DisplayAlertAsync("Invalid Input", "Please enter a valid weight in kilograms.", "OK");
+            await DisplayAlertAsync("Invalid Weight", $"Please enter a valid weight between {MinWeightKg} and {MaxWeightKg} kilograms.", "OK");
             return;
         }
 
@@ -57,4 +63,8 @@ public partial class MainPage : ContentPage
         ResultCard.Description = description;
         ResultCard.IsVisible = true;
     }
+
+    private bool IsValidHeight(double height) => height >= MinHeightCm && height <= MaxHeightCm;
+
+    private bool IsValidWeight(double weight) => weight >= MinWeightKg && weight <= MaxWeightKg;
 }
