@@ -5,7 +5,6 @@ namespace bmi_calculator;
 
 public partial class MainPage : ContentPage
 {
-    // WHO standard constraints
     private const double MinHeightCm = 50.0;
     private const double MaxHeightCm = 272.0;
     private const double MinWeightKg = 0.5;
@@ -21,7 +20,6 @@ public partial class MainPage : ContentPage
 
     private async void OnCalculateClicked(object? sender, EventArgs e)
     {
-        // Parse height (cm) and weight (kg)
         if (!double.TryParse(HeightInput.Value, out double heightCm) || !IsValidHeight(heightCm))
         {
             await DisplayAlertAsync("Invalid Height", $"Please enter a valid height between {MinHeightCm} and {MaxHeightCm} centimetres.", "OK");
@@ -34,11 +32,9 @@ public partial class MainPage : ContentPage
             return;
         }
 
-        // Calculate BMI
         double heightM = heightCm / 100.0;
         double bmi = weightKg / (heightM * heightM);
 
-        // Determine category and description
         string category;
         string description;
 
@@ -65,13 +61,11 @@ public partial class MainPage : ContentPage
 
         string bmiFormatted = bmi.ToString("F1");
 
-        // Update result card
         ResultCard.BmiValue = bmiFormatted;
         ResultCard.Category = category;
         ResultCard.Description = description;
         ResultCard.IsVisible = true;
 
-        // Add to history (newest first)
         _history.Insert(0, new BmiRecord
         {
             BmiValue = bmiFormatted,

@@ -2,7 +2,6 @@ namespace bmi_calculator.Components;
 
 public partial class BmiResultCard : ContentView
 {
-    // ── BmiValue ──────────────────────────────────────────────────────────────
     public static readonly BindableProperty BmiValueProperty =
         BindableProperty.Create(nameof(BmiValue), typeof(string), typeof(BmiResultCard),
             string.Empty, propertyChanged: OnDataChanged);
@@ -13,7 +12,6 @@ public partial class BmiResultCard : ContentView
         set => SetValue(BmiValueProperty, value);
     }
 
-    // ── Category ──────────────────────────────────────────────────────────────
     public static readonly BindableProperty CategoryProperty =
         BindableProperty.Create(nameof(Category), typeof(string), typeof(BmiResultCard),
             string.Empty, propertyChanged: OnDataChanged);
@@ -24,7 +22,6 @@ public partial class BmiResultCard : ContentView
         set => SetValue(CategoryProperty, value);
     }
 
-    // ── Description ───────────────────────────────────────────────────────────
     public static readonly BindableProperty DescriptionProperty =
         BindableProperty.Create(nameof(Description), typeof(string), typeof(BmiResultCard),
             string.Empty, propertyChanged: OnDataChanged);

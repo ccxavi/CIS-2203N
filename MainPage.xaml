@@ -8,7 +8,6 @@
     <ScrollView>
         <VerticalStackLayout Padding="24,48,24,40" Spacing="16">
 
-            <!-- ── Header ─────────────────────────────────────────── -->
             <VerticalStackLayout Spacing="4" Margin="0,0,0,8">
                 <Label Text="BMI Calculator"
                        Style="{StaticResource PageTitle}"/>
@@ -16,7 +15,6 @@
                        Style="{StaticResource PageSubtitle}"/>
             </VerticalStackLayout>
 
-            <!-- ── Inputs ─────────────────────────────────────────── -->
             <components:InputField
                 x:Name="HeightInput"
                 Label="HEIGHT"
@@ -29,13 +27,11 @@
                 Placeholder="0"
                 Unit="kg"/>
 
-            <!-- ── Calculate Button ───────────────────────────────── -->
             <Button Text="Calculate BMI"
                     Clicked="OnCalculateClicked"
                     Margin="0,8,0,0"
                     HorizontalOptions="Fill"/>
 
-            <!-- ── Reset Button ───────────────────────────────────── -->
             <Button Text="Reset"
                     Clicked="OnResetClicked"
                     BackgroundColor="Transparent"
@@ -44,20 +40,16 @@
                     BorderWidth="1"
                     HorizontalOptions="Fill"/>
 
-            <!-- ── Result Card (hidden until calculated) ──────────── -->
             <components:BmiResultCard
                 x:Name="ResultCard"
                 IsVisible="False"/>
 
-            <!-- ── History Card (hidden until first calculation) ───── -->
             <components:BmiHistoryCard
                 x:Name="HistoryCard"
                 IsVisible="False"/>
 
-            <!-- ── BMI Scale Card ──────────────────────────────────── -->
             <components:BmiScaleCard/>
 
-            <!-- ── Footer note ────────────────────────────────────── -->
             <Label Text="BMI is a screening tool, not a diagnostic measure."
                    FontFamily="InterRegular"
                    FontSize="12"
