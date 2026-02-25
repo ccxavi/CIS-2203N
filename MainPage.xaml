@@ -49,6 +49,11 @@
                 x:Name="ResultCard"
                 IsVisible="False"/>
 
+            <!-- ── History Card (hidden until first calculation) ───── -->
+            <components:BmiHistoryCard
+                x:Name="HistoryCard"
+                IsVisible="False"/>
+
             <!-- ── BMI Scale Card ──────────────────────────────────── -->
             <components:BmiScaleCard/>
 

@@ -1,4 +1,7 @@
-﻿namespace bmi_calculator;
+﻿using System.Collections.ObjectModel;
+using bmi_calculator.Models;
+
+namespace bmi_calculator;
 
 public partial class MainPage : ContentPage
 {
@@ -8,9 +11,12 @@ public partial class MainPage : ContentPage
     private const double MinWeightKg = 0.5;
     private const double MaxWeightKg = 500.0;
 
+    private readonly ObservableCollection<BmiRecord> _history = [];
+
     public MainPage()
     {
         InitializeComponent();
+        HistoryCard.Items = _history;
     }
 
     private async void OnCalculateClicked(object? sender, EventArgs e)
@@ -57,11 +63,25 @@ public partial class MainPage : ContentPage
             description = "Your BMI indicates obesity. Consulting a healthcare professional is recommended.";
         }
 
+        string bmiFormatted = bmi.ToString("F1");
+
         // Update result card
-        ResultCard.BmiValue = bmi.ToString("F1");
+        ResultCard.BmiValue = bmiFormatted;
         ResultCard.Category = category;
         ResultCard.Description = description;
         ResultCard.IsVisible = true;
+
+        // Add to history (newest first)
+        _history.Insert(0, new BmiRecord
+        {
+            BmiValue = bmiFormatted,
+            Category = category,
+            HeightCm = heightCm,
+            WeightKg = weightKg,
+            RecordedAt = DateTime.Now
+        });
+
+        HistoryCard.IsVisible = true;
     }
 
     private void OnResetClicked(object? sender, EventArgs e)
