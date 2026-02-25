@@ -1,0 +1,33 @@
+# --- Build Artifacts ---
+[bin]/
+[obj]/
+Generated\ Files/
+
+# --- User-specific & IDE Files ---
+*.user
+*.userosscache
+*.sln.docstates
+*.suo
+.vs/
+.vscode/
+.idea/
+
+# --- Mobile & Platform Specific ---
+AppHub/
+ClientBin/
+_PCH/
+*.ipa
+*.apk
+*.vsmacdb
+
+# --- macOS Junk ---
+.DS_Store
+
+# --- Quality Assurance & Logs ---
+TestResults/
+[Cc]overage/
+*.log
+
+# --- Project Specific ---
+# Ignore published binaries
+publish/
