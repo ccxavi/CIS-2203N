@@ -19,10 +19,16 @@
 
             <!-- Title field -->
             <Label Text="TITLE" Style="{StaticResource CardLabel}" Margin="0,0,0,2"/>
-            <Entry x:Name="titleEntry"
-                   Placeholder="What needs to be done?"
-                   ReturnType="Next"
-                   MaxLength="50"/>
+            <VerticalStackLayout Spacing="0">
+                <Entry x:Name="titleEntry"
+                       Placeholder="What needs to be done?"
+                       ReturnType="Next"
+                       MaxLength="50"
+                       BackgroundColor="Transparent"/>
+                <BoxView HeightRequest="1"
+                         Margin="0,0,0,0"
+                         BackgroundColor="{AppThemeBinding Light={StaticResource Border}, Dark={StaticResource BorderDark}}"/>
+            </VerticalStackLayout>
 
             <!-- Details field -->
             <Label Text="DETAILS" Style="{StaticResource CardLabel}" Margin="0,4,0,2"/>

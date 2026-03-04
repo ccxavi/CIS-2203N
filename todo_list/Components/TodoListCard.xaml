@@ -18,14 +18,27 @@
         <VerticalStackLayout Padding="0,4,0,8" Spacing="0">
 
             <Grid ColumnDefinitions="*,Auto" Padding="20,16,20,8">
-                <Label Grid.Column="0"
-                       Text="TO-DO LIST"
-                       Style="{StaticResource CardLabel}"/>
-                <Label Grid.Column="1"
-                       x:Name="countLabel"
-                       FontFamily="InterMedium"
-                       FontSize="12"
-                       TextColor="{AppThemeBinding Light={StaticResource Muted}, Dark={StaticResource MutedDark}}"/>
+                <HorizontalStackLayout Grid.Column="0" Spacing="0" VerticalOptions="Center">
+                    <Label Text="TO-DO LIST"
+                           Style="{StaticResource CardLabel}"/>
+                    <Label x:Name="countLabel"
+                           FontFamily="InterRegular"
+                           FontSize="11"
+                           VerticalOptions="End"
+                           Margin="0,0,0,1"
+                           TextColor="{AppThemeBinding Light={StaticResource Muted}, Dark={StaticResource MutedDark}}"/>
+                </HorizontalStackLayout>
+                <Button Grid.Column="1"
+                        x:Name="clearAllButton"
+                        Text="Clear All"
+                        FontFamily="InterMedium"
+                        FontSize="11"
+                        TextColor="{AppThemeBinding Light={StaticResource Muted}, Dark={StaticResource MutedDark}}"
+                        BackgroundColor="Transparent"
+                        BorderColor="Transparent"
+                        Padding="0"
+                        IsVisible="False"
+                        Clicked="ClearAllButton_Clicked"/>
             </Grid>
 
             <BoxView HeightRequest="1"

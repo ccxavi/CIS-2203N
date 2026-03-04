@@ -125,4 +125,20 @@ public partial class MainPage : ContentPage
             FormCard.LoadItem(item);
         }
     }
+
+    private async void ClearAllToDoItems(object? sender, EventArgs e)
+    {
+        bool confirmed = await DisplayAlert(
+            "Clear All",
+            "Are you sure you want to delete all to-dos?",
+            "Clear All",
+            "Cancel");
+
+        if (!confirmed) return;
+
+        _todos.Clear();
+        _selectedItem = null;
+        FormCard.ClearForm();
+        ListCard.DeselectItem();
+    }
 }

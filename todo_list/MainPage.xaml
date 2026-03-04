@@ -29,7 +29,8 @@
                 ItemSelected="TodoLV_OnItemSelected"
                 ItemTapped="todoLV_ItemTapped"
                 DeleteClicked="DeleteToDoItem"
-                EditClicked="HandleEditClick"/>
+                EditClicked="HandleEditClick"
+                ClearAllClicked="ClearAllToDoItems"/>
 
         </VerticalStackLayout>
     </ScrollView>

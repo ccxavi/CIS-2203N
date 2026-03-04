@@ -9,6 +9,7 @@ public partial class TodoListCard : ContentView
     public event EventHandler<ItemTappedEventArgs>? ItemTapped;
     public event EventHandler<string>? DeleteClicked;
     public event EventHandler<string>? EditClicked;
+    public event EventHandler? ClearAllClicked;
 
     private ObservableCollection<ToDoClass> _items = [];
 
@@ -39,7 +40,8 @@ public partial class TodoListCard : ContentView
         bool hasItems = _items.Count > 0;
         emptyLabel.IsVisible = !hasItems;
         todoLV.IsVisible = hasItems;
-        countLabel.Text = _items.Count == 1 ? "1 item" : $"{_items.Count} items";
+        clearAllButton.IsVisible = hasItems;
+        countLabel.Text = _items.Count == 1 ? "  •  1 item" : $"  •  {_items.Count} items";
     }
 
     private void ListView_ItemSelected(object? sender, SelectedItemChangedEventArgs e)
@@ -59,6 +61,9 @@ public partial class TodoListCard : ContentView
         if (sender is ImageButton btn)
             EditClicked?.Invoke(this, btn.ClassId);
     }
+
+    private void ClearAllButton_Clicked(object? sender, EventArgs e)
+        => ClearAllClicked?.Invoke(this, e);
 
     private void EditIconTapped(object? sender, TappedEventArgs e)
     {
