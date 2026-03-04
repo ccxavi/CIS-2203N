@@ -14,22 +14,23 @@ public partial class TodoFormCard : ContentView
     public TodoFormCard()
     {
         InitializeComponent();
+        formDateLabel.Text = DateTime.Now.ToString("MMMM d, yyyy") + " at " + DateTime.Now.ToString("h:mm tt");
     }
 
-    /// <summary>Populate the form and switch to edit mode.</summary>
     public void LoadItem(ToDoClass item)
     {
         titleEntry.Text = item.title;
         detailsEditor.Text = item.detail;
+        formDateLabel.Text = item.lastModifiedDisplay;
         addBtn.IsVisible = false;
         editRow.IsVisible = true;
     }
 
-    /// <summary>Clear fields and switch back to add mode.</summary>
     public void ClearForm()
     {
         titleEntry.Text = string.Empty;
         detailsEditor.Text = string.Empty;
+        formDateLabel.Text = DateTime.Now.ToString("MMMM d, yyyy") + " at " + DateTime.Now.ToString("h:mm tt");
         addBtn.IsVisible = true;
         editRow.IsVisible = false;
     }

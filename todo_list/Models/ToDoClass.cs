@@ -13,6 +13,7 @@ public class ToDoClass : INotifyPropertyChanged
     int _id { get; set; }
     string _title { get; set; } = string.Empty;
     string _detail { get; set; } = string.Empty;
+    DateTime _lastModified { get; set; } = DateTime.Now;
 
     public int id
     {
@@ -31,6 +32,23 @@ public class ToDoClass : INotifyPropertyChanged
         get { return _detail; }
         set { _detail = value; OnPropertyChanged(nameof(detail)); }
     }
+
+    public DateTime lastModified
+    {
+        get { return _lastModified; }
+        set
+        {
+            _lastModified = value;
+            OnPropertyChanged(nameof(lastModified));
+            OnPropertyChanged(nameof(lastModifiedDisplay));
+        }
+    }
+
+    public string lastModifiedDisplay
+        => $"{_lastModified:MMMM d, yyyy} at {_lastModified:h:mm tt}";
+
+    public string shortDateDisplay
+        => _lastModified.ToString("M/d/yy");
 
     public event PropertyChangedEventHandler? PropertyChanged;
 

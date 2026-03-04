@@ -58,8 +58,8 @@
                       HorizontalOptions="Fill"
                       VerticalOptions="Fill"
                       HasUnevenRows="False"
-                      RowHeight="68"
-                      MaximumHeightRequest="680"
+                      RowHeight="70"
+                      MaximumHeightRequest="700"
                       SeparatorVisibility="Default"
                       BackgroundColor="Transparent"
                       IsVisible="False"
@@ -89,14 +89,21 @@
                                        VerticalOptions="Center"
                                        HorizontalOptions="Start"/>
 
-                                <Label Grid.Row="1" Grid.Column="0"
-                                       LineBreakMode="TailTruncation"
-                                       FontFamily="InterRegular"
-                                       FontSize="13"
-                                       TextColor="{AppThemeBinding Light={StaticResource Muted}, Dark={StaticResource MutedDark}}"
-                                       Text="{Binding detail}"
-                                       VerticalOptions="Center"
-                                       HorizontalOptions="Start"/>
+                                <HorizontalStackLayout Grid.Row="1" Grid.Column="0"
+                                                       Spacing="6"
+                                                       VerticalOptions="Center">
+                                    <Label FontFamily="InterRegular"
+                                           FontSize="12"
+                                           TextColor="{AppThemeBinding Light={StaticResource Muted}, Dark={StaticResource MutedDark}}"
+                                           Text="{Binding shortDateDisplay}"
+                                           VerticalOptions="Center"/>
+                                    <Label LineBreakMode="TailTruncation"
+                                           FontFamily="InterRegular"
+                                           FontSize="12"
+                                           TextColor="{AppThemeBinding Light={StaticResource Muted}, Dark={StaticResource MutedDark}}"
+                                           Text="{Binding detail}"
+                                           VerticalOptions="Center"/>
+                                </HorizontalStackLayout>
 
                                 <HorizontalStackLayout Grid.Row="0" Grid.RowSpan="2" Grid.Column="1"
                                                        Spacing="6"

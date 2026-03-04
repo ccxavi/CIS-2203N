@@ -15,7 +15,6 @@ public partial class MainPage : ContentPage
         ListCard.Items = _todos;
     }
 
-    // ── Add ──────────────────────────────────────────────────────────────────
 
     private async void AddToDoItem(object? sender, EventArgs e)
     {
@@ -38,7 +37,6 @@ public partial class MainPage : ContentPage
         FormCard.ClearForm();
     }
 
-    // ── Edit ─────────────────────────────────────────────────────────────────
 
     private async void EditToDoItem(object? sender, EventArgs e)
     {
@@ -55,13 +53,13 @@ public partial class MainPage : ContentPage
 
         _selectedItem.title = title;
         _selectedItem.detail = detail;
+        _selectedItem.lastModified = DateTime.Now;
 
         _selectedItem = null;
         FormCard.ClearForm();
         ListCard.DeselectItem();
     }
 
-    // ── Cancel ───────────────────────────────────────────────────────────────
 
     private void CancelEdit(object? sender, EventArgs e)
     {
@@ -70,7 +68,6 @@ public partial class MainPage : ContentPage
         ListCard.DeselectItem();
     }
 
-    // ── Delete ───────────────────────────────────────────────────────────────
 
     private async void DeleteToDoItem(object? sender, string classId)
     {
@@ -81,7 +78,7 @@ public partial class MainPage : ContentPage
 
         bool confirmed = await DisplayAlert(
             "Delete To-Do",
-            $"This will permanently delete \"{item.title}\". Are you sure?",
+            $"Are you sure you want to delete \"{item.title}\"?",
             "Delete",
             "Cancel");
 
@@ -96,7 +93,6 @@ public partial class MainPage : ContentPage
         }
     }
 
-    // ── Selection ────────────────────────────────────────────────────────────
 
     private void TodoLV_OnItemSelected(object? sender, SelectedItemChangedEventArgs e)
     {
@@ -109,7 +105,6 @@ public partial class MainPage : ContentPage
 
     private void todoLV_ItemTapped(object? sender, ItemTappedEventArgs e)
     {
-        // Deselect on second tap
         if (e.Item is ToDoClass tapped && _selectedItem?.id == tapped.id)
         {
             _selectedItem = null;
@@ -118,7 +113,6 @@ public partial class MainPage : ContentPage
         }
     }
 
-    // ── Edit Icon ────────────────────────────────────────────────────────────
 
     private void HandleEditClick(object? sender, string classId)
     {

@@ -8,22 +8,19 @@
     <ScrollView>
         <VerticalStackLayout Padding="24,48,24,40" Spacing="16">
 
-            <!-- Page header -->
             <VerticalStackLayout Spacing="4" Margin="0,0,0,8">
                 <Label Text="To-Do List"
                        Style="{StaticResource PageTitle}"/>
-                <Label Text="Tap a task to edit it"
+                <Label Text="Keep track of tasks, notes, and things to get done."
                        Style="{StaticResource PageSubtitle}"/>
             </VerticalStackLayout>
 
-            <!-- Form card -->
             <components:TodoFormCard
                 x:Name="FormCard"
                 AddClicked="AddToDoItem"
                 EditClicked="EditToDoItem"
                 CancelClicked="CancelEdit"/>
 
-            <!-- List card -->
             <components:TodoListCard
                 x:Name="ListCard"
                 ItemSelected="TodoLV_OnItemSelected"

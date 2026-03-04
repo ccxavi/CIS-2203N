@@ -45,10 +45,12 @@ public partial class TodoListCard : ContentView
     }
 
     private void ListView_ItemSelected(object? sender, SelectedItemChangedEventArgs e)
-        => ItemSelected?.Invoke(this, e);
+    {
+        if (sender is ListView lv) lv.SelectedItem = null;
+    }
 
-    private void ListView_ItemTapped(object? sender, ItemTappedEventArgs e)
-        => ItemTapped?.Invoke(this, e);
+    private void ListView_ItemTapped(object? sender, ItemTappedEventArgs e) { }
+
 
     private void DeleteButton_Clicked(object? sender, EventArgs e)
     {
