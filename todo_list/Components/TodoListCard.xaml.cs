@@ -50,13 +50,13 @@ public partial class TodoListCard : ContentView
 
     private void DeleteButton_Clicked(object? sender, EventArgs e)
     {
-        if (sender is Button btn)
+        if (sender is ImageButton btn)
             DeleteClicked?.Invoke(this, btn.ClassId);
     }
 
     private void EditButton_Clicked(object? sender, EventArgs e)
     {
-        if (sender is Button btn)
+        if (sender is ImageButton btn)
             EditClicked?.Invoke(this, btn.ClassId);
     }
 
