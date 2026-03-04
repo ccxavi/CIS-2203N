@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="todo_list.Components.TodoListCard"
+             x:Name="root">
+
+    <Border BackgroundColor="{AppThemeBinding Light={StaticResource Surface}, Dark={StaticResource SurfaceDark}}"
+            Stroke="{AppThemeBinding Light={StaticResource Border}, Dark={StaticResource BorderDark}}"
+            StrokeThickness="1"
+            StrokeShape="RoundRectangle 16">
+        <Border.Shadow>
+            <Shadow Brush="{AppThemeBinding Light=#10000000, Dark=#20000000}"
+                    Offset="0,2"
+                    Radius="8"
+                    Opacity="1"/>
+        </Border.Shadow>
+
+        <VerticalStackLayout Padding="0,4,0,8" Spacing="0">
+
+            <!-- Card header -->
+            <Grid ColumnDefinitions="*,Auto" Padding="20,16,20,8">
+                <Label Grid.Column="0"
+                       Text="TO-DO LIST"
+                       Style="{StaticResource CardLabel}"/>
+                <Label Grid.Column="1"
+                       x:Name="countLabel"
+                       FontFamily="InterMedium"
+                       FontSize="12"
+                       TextColor="{AppThemeBinding Light={StaticResource Muted}, Dark={StaticResource MutedDark}}"/>
+            </Grid>
+
+            <!-- Divider -->
+            <BoxView HeightRequest="1"
+                     BackgroundColor="{AppThemeBinding Light={StaticResource Border}, Dark={StaticResource BorderDark}}"
+                     Margin="0,0,0,0"/>
+
+            <!-- Empty state -->
+            <Label x:Name="emptyLabel"
+                   Text="No to-dos yet. Add one above!"
+                   HorizontalTextAlignment="Center"
+                   FontFamily="InterRegular"
+                   FontSize="14"
+                   TextColor="{AppThemeBinding Light={StaticResource Muted}, Dark={StaticResource MutedDark}}"
+                   Padding="20,24"
+                   IsVisible="True"/>
+
+            <!-- ListView — exact structure from assignment -->
+            <ListView x:Name="todoLV"
+                      HorizontalOptions="Fill"
+                      VerticalOptions="FillAndExpand"
+                      HasUnevenRows="False"
+                      SeparatorVisibility="Default"
+                      BackgroundColor="Transparent"
+                      IsVisible="False"
+                      ItemSelected="ListView_ItemSelected"
+                      ItemTapped="ListView_ItemTapped">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid VerticalOptions="FillAndExpand"
+                                  RowSpacing="5"
+                                  HorizontalOptions="FillAndExpand"
+                                  Margin="16,8">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="7*"/>
+                                    <ColumnDefinition Width="3*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Label Grid.Row="0" Grid.Column="0"
+                                       LineBreakMode="TailTruncation"
+                                       FontFamily="InterSemiBold"
+                                       FontSize="15"
+                                       Text="{Binding title}"
+                                       VerticalOptions="Center"
+                                       HorizontalOptions="Start"/>
+
+                                <Label Grid.Row="1" Grid.Column="0"
+                                       LineBreakMode="TailTruncation"
+                                       FontFamily="InterRegular"
+                                       FontSize="13"
+                                       TextColor="{AppThemeBinding Light={StaticResource Muted}, Dark={StaticResource MutedDark}}"
+                                       Text="{Binding detail}"
+                                       VerticalOptions="Center"
+                                       HorizontalOptions="Start"/>
+
+                                <!-- Edit and Delete buttons row -->
+                                <HorizontalStackLayout Grid.Row="0" Grid.RowSpan="2" Grid.Column="1"
+                                                       Spacing="6"
+                                                       VerticalOptions="Center"
+                                                       HorizontalOptions="End"
+                                                       Padding="12,0">
+                                    <!-- Edit button icon -->
+                                    <ImageButton Source="square_pen.png"
+                                                 WidthRequest="36"
+                                                 HeightRequest="36"
+                                                 CornerRadius="18"
+                                                 Padding="8"
+                                                 BackgroundColor="{AppThemeBinding Light={StaticResource Accent}, Dark={StaticResource AccentDark}}"
+                                                 ClassId="{Binding id}"
+                                                 VerticalOptions="Center"
+                                                 Clicked="EditButton_Clicked"/>
+
+                                    <!-- Delete button icon -->
+                                    <ImageButton Source="trash_2.png"
+                                                 WidthRequest="36"
+                                                 HeightRequest="36"
+                                                 CornerRadius="18"
+                                                 Padding="8"
+                                                 BackgroundColor="{AppThemeBinding Light={StaticResource Accent}, Dark={StaticResource AccentDark}}"
+                                                 ClassId="{Binding id}"
+                                                 VerticalOptions="Center"
+                                                 Clicked="DeleteButton_Clicked"/>
+                                </HorizontalStackLayout>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+        </VerticalStackLayout>
+    </Border>
+</ContentView>
