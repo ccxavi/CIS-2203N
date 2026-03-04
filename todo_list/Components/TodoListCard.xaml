@@ -56,8 +56,10 @@
 
             <ListView x:Name="todoLV"
                       HorizontalOptions="Fill"
-                      VerticalOptions="FillAndExpand"
+                      VerticalOptions="Fill"
                       HasUnevenRows="False"
+                      RowHeight="68"
+                      MaximumHeightRequest="680"
                       SeparatorVisibility="Default"
                       BackgroundColor="Transparent"
                       IsVisible="False"

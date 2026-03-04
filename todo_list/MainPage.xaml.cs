@@ -72,21 +72,27 @@ public partial class MainPage : ContentPage
 
     // ── Delete ───────────────────────────────────────────────────────────────
 
-    private void DeleteToDoItem(object? sender, string classId)
+    private async void DeleteToDoItem(object? sender, string classId)
     {
         if (!int.TryParse(classId, out int id)) return;
 
         var item = _todos.FirstOrDefault(t => t.id == id);
-        if (item is not null)
-        {
-            _todos.Remove(item);
+        if (item is null) return;
 
-            // If the deleted item was being edited, reset the form
-            if (_selectedItem?.id == id)
-            {
-                _selectedItem = null;
-                FormCard.ClearForm();
-            }
+        bool confirmed = await DisplayAlert(
+            "Delete To-Do",
+            $"This will permanently delete \"{item.title}\". Are you sure?",
+            "Delete",
+            "Cancel");
+
+        if (!confirmed) return;
+
+        _todos.Remove(item);
+
+        if (_selectedItem?.id == id)
+        {
+            _selectedItem = null;
+            FormCard.ClearForm();
         }
     }
 
