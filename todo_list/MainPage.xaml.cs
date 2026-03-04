@@ -141,4 +141,7 @@ public partial class MainPage : ContentPage
         FormCard.ClearForm();
         ListCard.DeselectItem();
     }
+
+    private async void GitHubLink_Tapped(object? sender, TappedEventArgs e)
+        => await Launcher.OpenAsync("https://github.com/ccxavi");
 }
