@@ -9,7 +9,7 @@ Activity projects for **CIS 2203N**, built with .NET MAUI.
 | Project | Description |
 |---------|-------------|
 | [`bmi_calculator/`](./bmi_calculator) | BMI Calculator — calculates Body Mass Index from height and weight inputs, shows category, and keeps a scrollable history |
-| [`todo_list/`](./todo_list) | Todo List — starter MAUI project (work in progress) |
+| [`todo_list/`](./todo_list) | To-Do List — manage tasks with add, edit, delete, clear all, last modified timestamps, and a scrollable list |
 
 ## Tech Stack
 
