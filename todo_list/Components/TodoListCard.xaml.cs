@@ -5,8 +5,6 @@ using todo_list.Models;
 
 public partial class TodoListCard : ContentView
 {
-    public event EventHandler<SelectedItemChangedEventArgs>? ItemSelected;
-    public event EventHandler<ItemTappedEventArgs>? ItemTapped;
     public event EventHandler<string>? DeleteClicked;
     public event EventHandler<string>? EditClicked;
     public event EventHandler? ClearAllClicked;

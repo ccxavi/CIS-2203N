@@ -76,7 +76,7 @@ public partial class MainPage : ContentPage
         var item = _todos.FirstOrDefault(t => t.id == id);
         if (item is null) return;
 
-        bool confirmed = await DisplayAlert(
+        bool confirmed = await DisplayAlertAsync(
             "Delete To-Do",
             $"Are you sure you want to delete \"{item.title}\"?",
             "Delete",
@@ -90,26 +90,6 @@ public partial class MainPage : ContentPage
         {
             _selectedItem = null;
             FormCard.ClearForm();
-        }
-    }
-
-
-    private void TodoLV_OnItemSelected(object? sender, SelectedItemChangedEventArgs e)
-    {
-        if (e.SelectedItem is ToDoClass selected)
-        {
-            _selectedItem = selected;
-            FormCard.LoadItem(selected);
-        }
-    }
-
-    private void todoLV_ItemTapped(object? sender, ItemTappedEventArgs e)
-    {
-        if (e.Item is ToDoClass tapped && _selectedItem?.id == tapped.id)
-        {
-            _selectedItem = null;
-            FormCard.ClearForm();
-            ListCard.DeselectItem();
         }
     }
 
@@ -128,7 +108,7 @@ public partial class MainPage : ContentPage
 
     private async void ClearAllToDoItems(object? sender, EventArgs e)
     {
-        bool confirmed = await DisplayAlert(
+        bool confirmed = await DisplayAlertAsync(
             "Clear All",
             "Are you sure you want to delete all to-dos?",
             "Clear All",

@@ -23,8 +23,6 @@
 
             <components:TodoListCard
                 x:Name="ListCard"
-                ItemSelected="TodoLV_OnItemSelected"
-                ItemTapped="todoLV_ItemTapped"
                 DeleteClicked="DeleteToDoItem"
                 EditClicked="HandleEditClick"
                 ClearAllClicked="ClearAllToDoItems"/>
