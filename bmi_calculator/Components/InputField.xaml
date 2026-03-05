@@ -15,7 +15,7 @@
                     Opacity="1"/>
         </Border.Shadow>
 
-        <Grid ColumnDefinitions="*,Auto" Padding="20,16" RowDefinitions="Auto,Auto">
+        <Grid ColumnDefinitions="*,Auto" Padding="20,16" RowDefinitions="Auto,Auto,Auto">
             <!-- Label -->
             <Label Grid.Row="0" Grid.ColumnSpan="2"
                    Text="{Binding Source={x:Reference root}, Path=Label}"
@@ -31,7 +31,13 @@
                    FontSize="22"
                    MinimumHeightRequest="0"
                    HeightRequest="36"
+                   BackgroundColor="Transparent"
                    VerticalOptions="Center"/>
+
+            <BoxView Grid.Row="2" Grid.ColumnSpan="2"
+                     HeightRequest="1"
+                     Margin="0,4,0,0"
+                     BackgroundColor="{AppThemeBinding Light={StaticResource Border}, Dark={StaticResource BorderDark}}"/>
 
             <!-- Unit badge -->
             <Border Grid.Row="1" Grid.Column="1"
