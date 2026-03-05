@@ -88,4 +88,7 @@ public partial class MainPage : ContentPage
     private bool IsValidHeight(double height) => height >= MinHeightCm && height <= MaxHeightCm;
 
     private bool IsValidWeight(double weight) => weight >= MinWeightKg && weight <= MaxWeightKg;
+
+    private async void GitHubLink_Tapped(object? sender, TappedEventArgs e)
+        => await Launcher.OpenAsync("https://github.com/ccxavi");
 }

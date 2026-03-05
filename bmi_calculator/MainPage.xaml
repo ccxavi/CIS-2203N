@@ -50,12 +50,24 @@
 
             <components:BmiScaleCard/>
 
-            <Label Text="BMI is a screening tool, not a diagnostic measure."
+            <Label HorizontalTextAlignment="Center"
                    FontFamily="InterRegular"
-                   FontSize="12"
-                   HorizontalTextAlignment="Center"
-                   TextColor="{AppThemeBinding Light={StaticResource Muted}, Dark={StaticResource MutedDark}}"
-                   Margin="0,4,0,0"/>
+                   FontSize="11"
+                   Margin="0,4,0,0"
+                   TextColor="{AppThemeBinding Light={StaticResource Muted}, Dark={StaticResource MutedDark}}">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="Built with ♥ by "/>
+                        <Span Text="ccxavi"
+                              FontFamily="InterSemiBold"
+                              TextColor="{AppThemeBinding Light={StaticResource OnSurface}, Dark={StaticResource OnSurfaceDark}}">
+                            <Span.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="GitHubLink_Tapped"/>
+                            </Span.GestureRecognizers>
+                        </Span>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
 
         </VerticalStackLayout>
     </ScrollView>
