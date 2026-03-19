@@ -30,13 +30,13 @@
                    FontFamily="InterMedium"
                    FontSize="22"
                    MinimumHeightRequest="0"
-                   HeightRequest="36"
+                   HeightRequest="42"
                    BackgroundColor="Transparent"
                    VerticalOptions="Center"/>
 
             <BoxView Grid.Row="2" Grid.ColumnSpan="2"
                      HeightRequest="1"
-                     Margin="0,4,0,0"
+                     Margin="0,0,0,0"
                      BackgroundColor="{AppThemeBinding Light={StaticResource Border}, Dark={StaticResource BorderDark}}"/>
 
             <!-- Unit badge -->
