@@ -28,7 +28,7 @@
 		<MauiXamlInflator>SourceGen</MauiXamlInflator>
 
 		<!-- Display name -->
-		<ApplicationTitle>bmi_calculator</ApplicationTitle>
+		<ApplicationTitle>BMI Calculator</ApplicationTitle>
 
 		<!-- App Identifier -->
 		<ApplicationId>com.companyname.bmi_calculator</ApplicationId>
