@@ -28,7 +28,7 @@
 		<MauiXamlInflator>SourceGen</MauiXamlInflator>
 
 		<!-- Display name -->
-		<ApplicationTitle>todo_list</ApplicationTitle>
+		<ApplicationTitle>To-Do List</ApplicationTitle>
 
 		<!-- App Identifier -->
 		<ApplicationId>com.companyname.todo_list</ApplicationId>
