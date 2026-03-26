@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="calculator.MainPage"
+             BackgroundColor="Black"
+             Shell.NavBarIsVisible="False">
+
+    <Grid RowDefinitions="2*,*,*,*,*,*"
+          ColumnDefinitions="*,*,*,*"
+          RowSpacing="1"
+          ColumnSpacing="1"
+          BackgroundColor="#333333">
+
+        <Border Grid.Row="0" Grid.ColumnSpan="4"
+                BackgroundColor="Black"
+                Stroke="Black"
+                Padding="20"
+                StrokeShape="Rectangle">
+            <Label x:Name="ResultLabel"
+                   Text="0"
+                   FontSize="72"
+                   TextColor="White"
+                   HorizontalTextAlignment="End"
+                   VerticalTextAlignment="End"
+                   LineBreakMode="NoWrap" />
+        </Border>
+
+        <Button Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
+                Text="C"
+                FontSize="28"
+                TextColor="White"
+                BackgroundColor="#808080"
+                CornerRadius="0"
+                Clicked="OnClearClicked" />
+
+        <Button Grid.Row="1" Grid.Column="2"
+                Text="DEL"
+                FontSize="28"
+                TextColor="White"
+                BackgroundColor="#808080"
+                CornerRadius="0"
+                Clicked="OnDeleteClicked" />
+
+        <Button Grid.Row="1" Grid.Column="3"
+                Text="/"
+                FontSize="28"
+                TextColor="White"
+                BackgroundColor="#FFA500"
+                CornerRadius="0"
+                Clicked="OnOperatorClicked" />
+
+        <Button Grid.Row="2" Grid.Column="0"
+                Text="7"
+                FontSize="28"
+                TextColor="White"
+                BackgroundColor="#808080"
+                CornerRadius="0"
+                Clicked="OnNumberClicked" />
+
+        <Button Grid.Row="2" Grid.Column="1"
+                Text="8"
+                FontSize="28"
+                TextColor="White"
+                BackgroundColor="#808080"
+                CornerRadius="0"
+                Clicked="OnNumberClicked" />
+
+        <Button Grid.Row="2" Grid.Column="2"
+                Text="9"
+                FontSize="28"
+                TextColor="White"
+                BackgroundColor="#808080"
+                CornerRadius="0"
+                Clicked="OnNumberClicked" />
+
+        <Button Grid.Row="2" Grid.Column="3"
+                Text="x"
+                FontSize="28"
+                TextColor="White"
+                BackgroundColor="#FFA500"
+                CornerRadius="0"
+                Clicked="OnOperatorClicked" />
+
+        <Button Grid.Row="3" Grid.Column="0"
+                Text="4"
+                FontSize="28"
+                TextColor="White"
+                BackgroundColor="#808080"
+                CornerRadius="0"
+                Clicked="OnNumberClicked" />
+
+        <Button Grid.Row="3" Grid.Column="1"
+                Text="5"
+                FontSize="28"
+                TextColor="White"
+                BackgroundColor="#808080"
+                CornerRadius="0"
+                Clicked="OnNumberClicked" />
+
+        <Button Grid.Row="3" Grid.Column="2"
+                Text="6"
+                FontSize="28"
+                TextColor="White"
+                BackgroundColor="#808080"
+                CornerRadius="0"
+                Clicked="OnNumberClicked" />
+
+        <Button Grid.Row="3" Grid.Column="3"
+                Text="-"
+                FontSize="28"
+                TextColor="White"
+                BackgroundColor="#FFA500"
+                CornerRadius="0"
+                Clicked="OnOperatorClicked" />
+
+        <Button Grid.Row="4" Grid.Column="0"
+                Text="1"
+                FontSize="28"
+                TextColor="White"
+                BackgroundColor="#808080"
+                CornerRadius="0"
+                Clicked="OnNumberClicked" />
+
+        <Button Grid.Row="4" Grid.Column="1"
+                Text="2"
+                FontSize="28"
+                TextColor="White"
+                BackgroundColor="#808080"
+                CornerRadius="0"
+                Clicked="OnNumberClicked" />
+
+        <Button Grid.Row="4" Grid.Column="2"
+                Text="3"
+                FontSize="28"
+                TextColor="White"
+                BackgroundColor="#808080"
+                CornerRadius="0"
+                Clicked="OnNumberClicked" />
+
+        <Button Grid.Row="4" Grid.Column="3"
+                Text="+"
+                FontSize="28"
+                TextColor="White"
+                BackgroundColor="#FFA500"
+                CornerRadius="0"
+                Clicked="OnOperatorClicked" />
+
+        <Button Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2"
+                Text="0"
+                FontSize="28"
+                TextColor="White"
+                BackgroundColor="#808080"
+                CornerRadius="0"
+                Clicked="OnNumberClicked" />
+
+        <Button Grid.Row="5" Grid.Column="2"
+                Text="."
+                FontSize="28"
+                TextColor="White"
+                BackgroundColor="#808080"
+                CornerRadius="0"
+                Clicked="OnDecimalClicked" />
+
+        <Button Grid.Row="5" Grid.Column="3"
+                Text="="
+                FontSize="28"
+                TextColor="White"
+                BackgroundColor="#FFA500"
+                CornerRadius="0"
+                Clicked="OnEqualsClicked" />
+
+    </Grid>
+
+</ContentPage>
